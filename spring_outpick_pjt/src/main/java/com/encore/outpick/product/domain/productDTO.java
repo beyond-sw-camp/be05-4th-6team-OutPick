@@ -1,5 +1,12 @@
 package com.encore.outpick.product.domain;
 
-public class productDTO {
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Setter
+@Getter
+@ToString
+public class ProductDTO {
 
 }
