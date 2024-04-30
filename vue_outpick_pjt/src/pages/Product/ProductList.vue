@@ -1,6 +1,10 @@
 <template>
-    <div>
-      Product List Page
+    <div class="container">
+      <div>
+        <form action="">
+          Product List Page
+        </form>
+      </div>
     </div>
   </template>
   
