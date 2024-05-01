@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.encore.outpick.product.mapper.ProductMapper">
+
+    <select id="selectProductById" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT * FROM product WHERE product_id = #{productId}
+    </select>
+
+    <select id="selectAllProducts" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT * FROM product
+    </select>
+
+    <select id="selectProductByCategoryId" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT * FROM product WHERE category_id = #{categoryId}
+    </select>
+
+</mapper>
