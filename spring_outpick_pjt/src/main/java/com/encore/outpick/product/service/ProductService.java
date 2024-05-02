@@ -27,4 +27,27 @@ public class ProductService {
     public List<ProductDTO> getProductByCategoryId(String categoryId) {
         return productMapper.selectProductByCategoryId(categoryId);
     }
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+    public void addProduct(ProductDTO params) {
+        System.out.println("debug >>> ProductService addProduct");
+        productMapper.addProduct(params);
+    }
+
+    public void modifyProduct(ProductDTO params) {
+        System.out.println("debug >>> ProductService modifyProduct");
+        productMapper.modifyProduct(params);
+    }
+
+    public void deleteProduct(Long productId) {
+        System.out.println("debug >>> ProductService deleteProduct");
+        productMapper.deleteProduct(productId);
+    }
+
+    public List<ProductDTO> findByName(String name) {
+        System.out.println("debug >>> ProductService findByName");
+        return productMapper.findByName(name);
+    }
+
 }

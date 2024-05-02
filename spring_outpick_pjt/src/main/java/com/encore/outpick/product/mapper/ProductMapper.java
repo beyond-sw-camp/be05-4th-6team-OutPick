@@ -14,4 +14,12 @@ public interface ProductMapper {
     List<ProductDTO> sortAllProducts(String sortBy);
 
     List<ProductDTO> selectProductByCategoryId(String categoryId);
+
+    void addProduct(ProductDTO params);
+
+    void modifyProduct(ProductDTO product);
+
+    void deleteProduct(Long productId);
+
+    List<ProductDTO> findByName(String name);
 }
