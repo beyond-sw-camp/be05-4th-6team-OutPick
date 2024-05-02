@@ -21,7 +21,7 @@
     <!-- 상품조회 -->
     <div class="row row-right mt-4">
       <div class="col-3" >
-        <h5 class="seeList" @click="initial" >상품조회</h5>
+        <h5 class="seeList" @click="initial" >상품조회 : {{ copy_pd_list.length }} 건 </h5>
       </div>
       <div class="col-8 flex">
         <button class="btn btn-outline-light text-black" v-on:click="toAddPage" >등록</button>
@@ -55,7 +55,7 @@
       </table>
     </div>
 
-    <div v-if="search_result" class="alert alert-info">
+    <div v-if="search_result" class="alert alert-info mt-3">
       검색 결과가 존재하지 않습니다.
     </div>
 
@@ -63,7 +63,7 @@
       <h5>상품 설명</h5>
     </div>
 
-    <div class="row" >
+    <div class="row listDiv" >
       <table class="table border-gray">
         <thead>
         <th>설명</th>
@@ -272,12 +272,17 @@ td {
   vertical-align: middle; /* 세로 방향 가운데 정렬 */
 }
 
-button:hover, table{
-  box-shadow: 0 6px 7px rgba(79, 79, 79, 0.2); /* 강조된 그림자 효과 */
+button:hover, .listDiv{
+  box-shadow: 0 6px 7px rgba(79, 79, 79, 0.2); 
 }
 
 .seeList:hover{
-  text-shadow: 0 3px 7px rgba(17, 17, 17, 0.403); /* 강조된 그림자 효과 */
+  text-shadow: 0 3px 7px rgba(17, 17, 17, 0.403); 
+}
+
+.alert{
+  font-weight: bold;
+  box-shadow: 0 3px 7px rgba(139, 139, 139, 0.403); 
 }
 
 .listDiv{
