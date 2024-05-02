@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.encore.outpick.product.domain.ProductDTO;
+import com.encore.outpick.product.domain.ProductDAO;
 
 @Mapper
 public interface ProductMapper {
-    public void addProduct(ProductDTO params);
-    public void modifyProduct(ProductDTO params);
-    public void deleteProduct(ProductDTO params);
-    public List<ProductDTO> findByName(ProductDTO params);
+    public void addProduct(ProductDAO params);
+    public void modifyProduct(ProductDAO product);
+    public void deleteProduct(Long productId);
+    public List<ProductDAO> findByName(String name);
 }

@@ -15,11 +15,12 @@
             CATEGORY_ID = #{category_id},
             NAME = #{name},
             PRICE = #{price},
-            STOCK = #{content},
+            STOCK = #{stock},
+            CONTENT = #{content},
             SUPPLIER = #{supplier},
             STORAGE = #{storage}
         WHERE
-            product_id = #{product_id}
+            PRODUCT_ID = #{product_id}
     </update>
     <delete id="deleteProduct"
             parameterType="java.lang.Long">
@@ -28,9 +29,11 @@
             PRODUCT_ID = #{product_id}    
     </delete>
     <select id="findByName"
-            parameterType="java.lang.Long"
+            parameterType="java.lang.String"
             resultType="com.encore.outpick.product.domain.ProductDAO">
-        SELECT
-                
+        SELECT *
+        FROM PRODUCT
+        WHERE NAME 
+        LIKE CONCAT('%', #{name}, '%');               
     </select>
 </mapper> 
