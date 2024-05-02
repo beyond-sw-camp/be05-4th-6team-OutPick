@@ -18,7 +18,7 @@ const router = createRouter({
             component : ProductAdd   
         },
         {
-            path : "/product/modify/{product_id}",
+            path : "/product/modify/:productId",
             name : "ProductModify",
             component : ProductModify
         }

@@ -39,16 +39,16 @@
           <th>공급업체</th>
         </tr>
         </thead>
-        <tbody v-for="(pd, index) in copy_pd_list" :key="pd.product_id" >
-        <tr v-on:click="select(pd.product_id)">
+        <tbody v-for="(pd, index) in copy_pd_list" :key="pd.productId" >
+        <tr v-on:click="select(pd.productId)">
           <td>{{ index+1 }}</td>
           <td>{{ pd.name }}</td>
           <td>{{ pd.price }}</td>
-          <td>{{ pd.incomming_date }}</td>
+          <td>{{ pd.incommingDate }}</td>
           <td>{{ pd.supplier }}</td>
-          <td><button class="btn btn-outline-warning" v-on:click.stop="toModifyPage(pd.product_id)"
+          <td><button class="btn btn-outline-warning" v-on:click.stop="toModifyPage(pd.productId)"
           >수정</button> </td>
-          <td><button class="btn btn-outline-danger" v-on:click.stop="pd_delete(pd.product_id)" >삭제</button> </td>
+          <td><button class="btn btn-outline-danger" v-on:click.stop="pd_delete(pd.productId)" >삭제</button> </td>
         </tr>
         </tbody>
 
@@ -173,20 +173,20 @@ export default {
 
     getList();
 
-    const modify = (product_id) => {
-      window.alert("modify : " + product_id)
+    const modify = (productId) => {
+      window.alert("modify : " + productId)
 
       // axios - post 통신 : 상품정보 수정
     }
 
-    const pd_delete = (product_id) => {
-      window.alert("delete : " + product_id)
+    const pd_delete = (productId) => {
+      window.alert("delete : " + productId)
 
       // axios - delete 통신 : 상품정보 삭제
     }
 
-    const select = (product_id) => {
-      window.alert("select : " + product_id)
+    const select = (productId) => {
+      window.alert("select : " + productId)
 
       // axios - get 통신 : 상세정보
 
@@ -202,11 +202,12 @@ export default {
       })
     }
 
-    const toModifyPage = (product_id) => {
+    const toModifyPage = (productId) => {
+      window.alert(productId);
       router.push({
         name : "ProductModify",
         params : {
-          product_id : product_id
+          productId : productId
         }
       })
     }

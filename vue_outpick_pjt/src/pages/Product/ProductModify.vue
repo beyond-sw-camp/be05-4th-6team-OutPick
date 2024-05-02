@@ -51,7 +51,7 @@ export default{
   setup(){
     const route = useRoute();
     const router = useRouter();
-    const productId = route.params.product_id;
+    const productId = route.params.productId;
     console.log(productId);
     const product = ref({
       productId: '',
