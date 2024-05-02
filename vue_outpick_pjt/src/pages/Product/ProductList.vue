@@ -1,88 +1,88 @@
 <template>
-    <div class="container">
+  <div class="container">
 
-      <!-- 검색창 -->
-      <div class="search_div">
-        <form v-on:submit.prevent="search" class="row mt-4" >
-          <div class="col-3" >
-            <h5>상품이름</h5>
-          </div>
-          <div class="col-7" >
-            <input type="text" v-model="searchText" placeholder="검색하세요" class="form-control" >
-          </div>
-          <div class="col-2" >
-            <button class="btn btn-outline-light text-black" >검색</button>
-          </div>
-        </form>
-      </div>
-
-      <hr>
-
-      <!-- 상품조회 -->
-      <div class="row row-right mt-4">
+    <!-- 검색창 -->
+    <div class="search_div">
+      <form v-on:submit.prevent="search" class="row mt-4" >
         <div class="col-3" >
-          <h5 class="seeList" @click="initial" >상품조회</h5>
+          <h5>상품이름</h5>
         </div>
-        <div class="col-8 flex">
-          <button class="btn btn-outline-light text-black" v-on:click="toAddPage" >등록</button>
+        <div class="col-7" >
+          <input type="text" v-model="searchText" placeholder="검색하세요" class="form-control" >
         </div>
-      </div>
-
-      <div class="row mt-1 listDiv">
-        <table class="table table-hover border-gray">
-          <thead>
-            <tr>
-              <th>상품ID</th>
-              <th>상품이름</th>
-              <th>가격</th>
-              <th>입고일</th>
-              <th>공급업체</th>
-            </tr>
-          </thead>
-          <tbody v-for="(pd, index) in copy_pd_list" :key="pd.product_id" >
-            <tr v-on:click="select(pd.product_id)">
-              <td>{{ index+1 }}</td>
-              <td>{{ pd.name }}</td>
-              <td>{{ pd.price }}</td>  
-              <td>{{ pd.incomming_date }}</td>
-              <td>{{ pd.supplier }}</td>
-              <td><button class="btn btn-outline-warning" v-on:click.stop="modify(pd.product_id)" 
-                    >수정</button> </td>
-              <td><button class="btn btn-outline-danger" v-on:click.stop="pd_delete(pd.product_id)" >삭제</button> </td>
-            </tr>
-          </tbody>
-
-        </table>
-      </div>
-
-      <div v-if="search_result" class="alert alert-info">
-        검색 결과가 존재하지 않습니다.
-      </div>
-
-      <div class="row row-right mt-5"> 
-        <h5>상품 설명</h5>
-      </div>
-
-      <div class="row" >
-        <table class="table border-gray">
-          <thead>
-            <th>설명</th>
-            <th>저장 창고</th>
-            <th>재고</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{ pd_view.content }}</td>
-              <td>{{ pd_view.storage }}</td>
-              <td>{{ pd_view.stock }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
+        <div class="col-2" >
+          <button class="btn btn-outline-light text-black" >검색</button>
+        </div>
+      </form>
     </div>
+
+    <hr>
+
+    <!-- 상품조회 -->
+    <div class="row row-right mt-4">
+      <div class="col-3" >
+        <h5 class="seeList" @click="initial" >상품조회</h5>
+      </div>
+      <div class="col-8 flex">
+        <button class="btn btn-outline-light text-black" v-on:click="toAddPage" >등록</button>
+      </div>
+    </div>
+
+    <div class="row mt-1 listDiv">
+      <table class="table table-hover border-gray">
+        <thead>
+        <tr>
+          <th>상품ID</th>
+          <th>상품이름</th>
+          <th>가격</th>
+          <th>입고일</th>
+          <th>공급업체</th>
+        </tr>
+        </thead>
+        <tbody v-for="(pd, index) in copy_pd_list" :key="pd.product_id" >
+        <tr v-on:click="select(pd.product_id)">
+          <td>{{ index+1 }}</td>
+          <td>{{ pd.name }}</td>
+          <td>{{ pd.price }}</td>
+          <td>{{ pd.incomming_date }}</td>
+          <td>{{ pd.supplier }}</td>
+          <td><button class="btn btn-outline-warning" v-on:click.stop="modify(pd.product_id)"
+          >수정</button> </td>
+          <td><button class="btn btn-outline-danger" v-on:click.stop="pd_delete(pd.product_id)" >삭제</button> </td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+    <div v-if="search_result" class="alert alert-info">
+      검색 결과가 존재하지 않습니다.
+    </div>
+
+    <div class="row row-right mt-5">
+      <h5>상품 설명</h5>
+    </div>
+
+    <div class="row" >
+      <table class="table border-gray">
+        <thead>
+        <th>설명</th>
+        <th>저장 창고</th>
+        <th>재고</th>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{ pd_view.content }}</td>
+          <td>{{ pd_view.storage }}</td>
+          <td>{{ pd_view.stock }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
 </template>
-  
+
 <script>
 import {useRouter} from 'vue-router';
 import { ref} from "vue";
@@ -102,31 +102,31 @@ export default {
         incomming_date : "2000-03-01",
         stock : 3,
         supplier : "필리핀"}
-    ,{product_id : 2,
+      ,{product_id : 2,
         name : "사과",
         price : "5000",
         incomming_date : "2000-06-03",
         stock : 2,
         supplier : "일본"},
-        {product_id : 2,
+      {product_id : 2,
         name : "사과",
         price : "5000",
         incomming_date : "2000-06-03",
         stock : 2,
         supplier : "일본"},
-        {product_id : 2,
+      {product_id : 2,
         name : "사과",
         price : "5000",
         incomming_date : "2000-06-03",
         stock : 2,
         supplier : "일본"},
-        {product_id : 2,
+      {product_id : 2,
         name : "사과",
         price : "5000",
         incomming_date : "2000-06-03",
         stock : 2,
         supplier : "일본"},
-        {product_id : 2,
+      {product_id : 2,
         name : "사과",
         price : "5000",
         incomming_date : "2000-06-03",
@@ -135,7 +135,7 @@ export default {
 
     // search에 따라 변경되는 값
     let copy_pd_list = ref([{}]);
-    
+
     const search = () => {
       window.alert("click!");
 
@@ -163,7 +163,7 @@ export default {
 
       // console.log(copy_pd_list.value[0]);
     }
-    
+
     getList();
 
     const modify = (product_id) => {
@@ -184,7 +184,7 @@ export default {
       // axios - get 통신 : 상세정보
 
       pd_view.value = {content : "happy",
-      storage : "h-101", stock : 3}
+        storage : "h-101", stock : 3}
     }
 
     // 등록 페이지로 이동
@@ -242,10 +242,10 @@ div{
 }
 
 .flex{
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap : wrap;
-    gap : 5px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap : wrap;
+  gap : 5px;
 }
 
 form > .col-3{
@@ -276,7 +276,7 @@ button:hover, table{
 
 .listDiv{
   max-height : 30vh;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 </style>
