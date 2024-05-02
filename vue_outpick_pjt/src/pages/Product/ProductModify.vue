@@ -43,7 +43,7 @@
 
 <script>
 import { ref } from 'vue';
-import axios from 'axios';
+import {modifyProduct, getProductById} from '@/axios'
 import {useRoute, useRouter} from 'vue-router';
 
 export default{
@@ -51,7 +51,8 @@ export default{
   setup(){
     const route = useRoute();
     const router = useRouter();
-    const productId = route.params.productId;
+    const productId = route.params.product_id;
+    console.log(productId);
     const product = ref({
       productId: '',
       name: '',
@@ -72,7 +73,7 @@ export default{
 
     const getProduct = async () => {
       try{
-        const response = await axios.getProductById(productId);
+        const response = await getProductById(productId);
         product.value = { ...response.data };
       }catch(e){
         console.log("정보 불러오기 실패");
@@ -93,8 +94,8 @@ export default{
           supplier: product.value.supplier,
           storage: product.value.storage
         }
-
-        const response = await axios.modifyProduct(data.productId, data)
+        
+        const response = await modifyProduct(data.productId, data)
         console.log(response);
         alert("수정되었습니다.");
         window.location.href = '/';

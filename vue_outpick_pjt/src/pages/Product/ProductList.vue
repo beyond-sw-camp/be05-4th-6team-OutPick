@@ -86,6 +86,7 @@
 <script>
 import {useRouter} from 'vue-router';
 import { ref} from "vue";
+import { getAllProductList } from '@/axios';
 
 export default {
 
@@ -155,10 +156,16 @@ export default {
       pd_view.value = {};
     }
 
-    const getList = () => {
+    const getList = async () => {
 
       // axios - get 통신 : 전체리스트
+      const response = await getAllProductList();
 
+      console.log(response.data);
+
+      product_list.value = response.data;
+
+      // search를 위한 복제
       copy_pd_list.value = [...product_list.value];
 
       // console.log(copy_pd_list.value[0]);

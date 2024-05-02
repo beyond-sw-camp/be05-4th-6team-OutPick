@@ -44,7 +44,7 @@
 
 <script setup>
 import { reactive } from 'vue';
-import axios from 'axios';
+import { addProduct } from '@/axios';
 import { useRouter } from 'vue-router';
 
 const product = reactive({
@@ -61,7 +61,7 @@ const router = useRouter();
 
 const submitForm = async () => {
   try {
-    const response = await axios.post('/product/add', product);
+    const response = await addProduct(product);
     console.log('Product added', response.data);
     alert("정상적으로 저장되었습니다");
     // 폼 데이터 초기화
