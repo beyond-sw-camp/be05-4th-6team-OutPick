@@ -44,12 +44,13 @@
 <script>
 import { ref } from 'vue';
 import axios from 'axios';
-import {useRoute} from 'vue-router';
+import {useRoute, useRouter} from 'vue-router';
 
 export default{
   name: 'ProductModify',
   setup(){
     const route = useRoute();
+    const router = useRouter();
     const productId = route.params.productId;
     const product = ref({
       productId: '',
@@ -64,7 +65,9 @@ export default{
     })
 
     const gotoMain = () => {
-      route.push('/');
+      router.push({
+        name : "List"
+      });
     }
 
     const getProduct = async () => {
