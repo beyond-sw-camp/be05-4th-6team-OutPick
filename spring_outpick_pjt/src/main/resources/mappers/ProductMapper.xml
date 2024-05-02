@@ -27,8 +27,6 @@
         ORDER BY incomming_date
     </select>
 
-    <!-- ///////////////////////////////////////////////// -->
-
     <insert id="addProduct"
             parameterType="com.encore.outpick.product.domain.ProductDTO">
         INSERT INTO PRODUCT(category_id, name, price, stock, content, supplier, storage)

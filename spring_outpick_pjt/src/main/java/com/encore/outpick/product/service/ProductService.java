@@ -28,8 +28,6 @@ public class ProductService {
         return productMapper.selectProductByCategoryId(categoryId);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-
     public void addProduct(ProductDTO params) {
         System.out.println("debug >>> ProductService addProduct");
         productMapper.addProduct(params);
