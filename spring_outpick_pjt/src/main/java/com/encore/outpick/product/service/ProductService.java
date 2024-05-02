@@ -20,6 +20,10 @@ public class ProductService {
         return productMapper.selectAllProducts();
     }
 
+    public List<ProductDTO> getSortProduct(String sortBy){
+        return productMapper.sortAllProducts(sortBy);
+    }
+
     public List<ProductDTO> getProductByCategoryId(String categoryId) {
         return productMapper.selectProductByCategoryId(categoryId);
     }

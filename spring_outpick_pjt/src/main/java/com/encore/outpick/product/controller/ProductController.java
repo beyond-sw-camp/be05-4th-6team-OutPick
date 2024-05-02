@@ -2,8 +2,6 @@ package com.encore.outpick.product.controller;
 
 import com.encore.outpick.product.domain.ProductDTO;
 import com.encore.outpick.product.service.ProductService;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +24,12 @@ public class ProductController {
     @GetMapping("/list")
     public List<ProductDTO> getAllProductList() {
         return productService.getAllProducts();
+    }
+
+    @GetMapping("/sort/{sortBy}")
+    public List<ProductDTO> getProductSort(@PathVariable("sortBy") String sortBy) {
+        System.out.println(sortBy);
+        return productService.getSortProduct(sortBy);
     }
 
     @GetMapping("/category/{categoryId}")

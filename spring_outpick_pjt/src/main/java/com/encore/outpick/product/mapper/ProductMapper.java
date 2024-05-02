@@ -11,5 +11,7 @@ public interface ProductMapper {
 
     List<ProductDTO> selectAllProducts();
 
+    List<ProductDTO> sortAllProducts(String sortBy);
+
     List<ProductDTO> selectProductByCategoryId(String categoryId);
 }

@@ -3,15 +3,28 @@
 <mapper namespace="com.encore.outpick.product.mapper.ProductMapper">
 
     <select id="selectProductById" resultType="com.encore.outpick.product.domain.ProductDTO">
-        SELECT * FROM product WHERE product_id = #{productId}
+        SELECT *
+        FROM product
+        WHERE product_id = #{productId}
     </select>
 
     <select id="selectAllProducts" resultType="com.encore.outpick.product.domain.ProductDTO">
-        SELECT * FROM product
+        SELECT *
+        FROM product
+        ORDER BY incomming_date
+    </select>
+
+    <select id="sortAllProducts" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT *
+        FROM product
+        ORDER BY ${sortBy}
     </select>
 
     <select id="selectProductByCategoryId" resultType="com.encore.outpick.product.domain.ProductDTO">
-        SELECT * FROM product WHERE category_id = #{categoryId}
+        SELECT *
+        FROM product
+        WHERE category_id = #{categoryId}
+        ORDER BY incomming_date
     </select>
 
 </mapper>
