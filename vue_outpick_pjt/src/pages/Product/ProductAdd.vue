@@ -7,11 +7,11 @@
       </div>
       <div class="form-group">
         <label for="description">설명</label>
-        <textarea id="description" v-model="product.description"></textarea>
+        <textarea id="description" v-model="product.content"></textarea>
       </div>
       <div class="form-group">
         <label for="category">카테고리</label>
-        <input id="category" v-model="product.category" type="text">
+        <input id="category" v-model="product.categoryId" type="text">
       </div>
       <div class="form-group">
         <label for="price">가격</label>
@@ -50,8 +50,8 @@ import { useRouter } from 'vue-router';
 const product = reactive({
   name: '',
   price: 0,
-  description: '',
-  category: '',
+  content: '',
+  categoryId: '',
   stock: 0,
   incommingDate: '',
   supplier: '',
