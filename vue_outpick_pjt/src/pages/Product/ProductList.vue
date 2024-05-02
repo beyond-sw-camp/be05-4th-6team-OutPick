@@ -46,7 +46,7 @@
           <td>{{ pd.price }}</td>
           <td>{{ pd.incomming_date }}</td>
           <td>{{ pd.supplier }}</td>
-          <td><button class="btn btn-outline-warning" v-on:click.stop="modify(pd.product_id)"
+          <td><button class="btn btn-outline-warning" v-on:click.stop="toModifyPage(pd.product_id)"
           >수정</button> </td>
           <td><button class="btn btn-outline-danger" v-on:click.stop="pd_delete(pd.product_id)" >삭제</button> </td>
         </tr>
@@ -195,9 +195,14 @@ export default {
       })
     }
 
-    // const toModifyPage = () => {
-
-    // }
+    const toModifyPage = (product_id) => {
+      router.push({
+        name : "ProductModify",
+        params : {
+          product_id : product_id
+        }
+      })
+    }
 
     // 전체 리스트 받아오기
     const initial = () => {
@@ -216,6 +221,7 @@ export default {
       search_result,
       pd_view,
       toAddPage,
+      toModifyPage,
       initial
     }
   }
