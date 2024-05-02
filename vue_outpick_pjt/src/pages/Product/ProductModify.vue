@@ -34,8 +34,8 @@
         <input id="storage" v-model="product.storage" type="text">
       </div>
       <div class="form-group action-buttons">
-        <button type="submit" class="button" @click="updateInfo">저장</button>
-        <button type="button" class="button" @click="gotoMain">취소</button>  <!-- 취소 버튼 누르면 메인 페이지로 이동하게 수정 예정-->
+        <button type="submit" class="button" @click="updateInfo">수정</button>
+        <button type="button" class="button" @click="gotoMain">취소</button>  
       </div>
     </form>
   </div>
@@ -43,14 +43,16 @@
 
 <script>
 import { ref } from 'vue';
-//import axios from 'axios';
-import {useRouter} from 'vue-router';
+import axios from 'axios';
+import {useRoute} from 'vue-router';
 
 export default{
   name: 'ProductModify',
   setup(){
-    const router = useRouter();
+    const route = useRoute();
+    const productId = route.params.productId;
     const product = ref({
+      productId: '',
       name: '',
       content: '',
       category: '',
@@ -62,16 +64,46 @@ export default{
     })
 
     const gotoMain = () => {
-      router.push('/');
+      route.push('/');
     }
 
-    const updateInfo = async () => {
+    const getProduct = async () => {
+      try{
+        const response = await axios.getProductById(productId);
+        product.value = { ...response.data };
+      }catch(e){
+        console.log("정보 불러오기 실패");
+      }
+    }
+    getProduct();
 
+    const updateInfo = async () => {
+      try{
+        const data = {
+          productId: product.value.productId,
+          name: product.value.name,
+          content: product.value.content,
+          category: product.value.category,
+          price: product.value.price,
+          stock: product.value.stock,
+          incomming_date: product.value.incomming_date,
+          supplier: product.value.supplier,
+          storage: product.value.storage
+        }
+
+        const response = await axios.modifyProduct(data.productId, data)
+        console.log(response);
+        alert("수정되었습니다.");
+        window.location.href = '/';
+      } catch(error) {
+        console.error("수정에 실패하였습니다. ", error)
+      }
     }
 
     return {
       product,
       gotoMain,
+      getProduct,
       updateInfo
 
     }
