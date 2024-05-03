@@ -86,7 +86,8 @@
 <script>
 import {useRouter} from 'vue-router';
 import { ref} from "vue";
-import { getAllProductList } from '@/axios';
+import { getAllProductList, deleteProduct
+          , getProductById } from '@/axios';
 
 export default {
 
@@ -96,49 +97,12 @@ export default {
     const pd_view = ref({});
     const search_result = ref(false);
 
-    const product_list = ref([
-      {product_id : 1,
-        name : "바나나",
-        price : "3000",
-        incomming_date : "2000-03-01",
-        stock : 3,
-        supplier : "필리핀"}
-      ,{product_id : 2,
-        name : "사과",
-        price : "5000",
-        incomming_date : "2000-06-03",
-        stock : 2,
-        supplier : "일본"},
-      {product_id : 2,
-        name : "사과",
-        price : "5000",
-        incomming_date : "2000-06-03",
-        stock : 2,
-        supplier : "일본"},
-      {product_id : 2,
-        name : "사과",
-        price : "5000",
-        incomming_date : "2000-06-03",
-        stock : 2,
-        supplier : "일본"},
-      {product_id : 2,
-        name : "사과",
-        price : "5000",
-        incomming_date : "2000-06-03",
-        stock : 2,
-        supplier : "일본"},
-      {product_id : 2,
-        name : "사과",
-        price : "5000",
-        incomming_date : "2000-06-03",
-        stock : 2,
-        supplier : "일본"}]);
+    const product_list = ref([]);
 
     // search에 따라 변경되는 값
     let copy_pd_list = ref([{}]);
 
     const search = () => {
-      window.alert("click!");
 
       if(searchText.value){
         copy_pd_list.value = product_list.value.filter( (search_pd) => {
@@ -156,42 +120,42 @@ export default {
       pd_view.value = {};
     }
 
+    // 상품조회 버튼 클릭시 전체 리스트 받아오기
+    const initial = () => {
+      copy_pd_list.value = product_list.value;
+      search_result.value = false;
+    }
+
     const getList = async () => {
 
       // axios - get 통신 : 전체리스트
       const response = await getAllProductList();
-
-      console.log(response.data);
-
       product_list.value = response.data;
 
       // search를 위한 복제
       copy_pd_list.value = [...product_list.value];
-
-      // console.log(copy_pd_list.value[0]);
     }
 
     getList();
 
-    const modify = (productId) => {
-      window.alert("modify : " + productId)
+    const pd_delete = async (productId) => {
+      let answer = window.confirm("삭제하시겠습니까?");
 
-      // axios - post 통신 : 상품정보 수정
+      if (answer) {
+        // axios - delete 통신 : 상품정보 삭제
+        const response = await deleteProduct(productId);
+        console.log(response);
+
+        getList();
+      }
     }
 
-    const pd_delete = (productId) => {
-      window.alert("delete : " + productId)
-
-      // axios - delete 통신 : 상품정보 삭제
-    }
-
-    const select = (productId) => {
-      window.alert("select : " + productId)
+    const select = async (productId) => {
 
       // axios - get 통신 : 상세정보
+      const response = await getProductById(productId);
 
-      pd_view.value = {content : "happy",
-        storage : "h-101", stock : 3}
+      pd_view.value = response.data;
     }
 
     // 등록 페이지로 이동
@@ -203,7 +167,6 @@ export default {
     }
 
     const toModifyPage = (productId) => {
-      window.alert(productId);
       router.push({
         name : "ProductModify",
         params : {
@@ -212,15 +175,8 @@ export default {
       })
     }
 
-    // 전체 리스트 받아오기
-    const initial = () => {
-      copy_pd_list.value = product_list.value;
-      search_result.value = false;
-    }
-
     return{
       search,
-      modify,
       pd_delete,
       select,
       product_list,
