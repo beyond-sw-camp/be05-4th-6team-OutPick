@@ -1,11 +1,11 @@
-import {createRouter, createWebHashHistory} from "vue-router";
+import {createRouter, createWebHistory} from "vue-router";
 
 import ProductAdd from "@/pages/Product/ProductAdd.vue";
 import ProductList from "@/pages/Product/ProductList.vue"
 import ProductModify from "@/pages/Product/ProductModify.vue"
 
 const router = createRouter({
-    history : createWebHashHistory(),
+    history : createWebHistory(),
     routes : [
         {
             path : "/",
@@ -18,7 +18,7 @@ const router = createRouter({
             component : ProductAdd   
         },
         {
-            path : "/product/modify",
+            path : "/product/modify/:productId",
             name : "ProductModify",
             component : ProductModify
         }
