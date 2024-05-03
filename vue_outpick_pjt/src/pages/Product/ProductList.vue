@@ -44,7 +44,7 @@
           <td>{{ index+1 }}</td>
           <td>{{ pd.name }}</td>
           <td>{{ pd.price }}</td>
-          <td>{{ pd.incommingDate }}</td>
+          <td>{{ formatDate(pd.incommingDate) }}</td>
           <td>{{ pd.supplier }}</td>
           <td><button class="btn btn-outline-warning" v-on:click.stop="toModifyPage(pd.productId)"
           >수정</button> </td>
@@ -92,6 +92,13 @@ import { getAllProductList, deleteProduct
 export default {
 
   setup(){
+
+    function formatDate(dateStr) { // 날짜 형식 변환해주는 함수임.
+      if (!dateStr) return '날짜 정보 없음'; // 날짜 데이터가 없거나 null일 경우
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return '유효하지 않은 날짜'; // 날짜 객체가 유효하지 않은 경우
+      return date.toISOString().slice(0, 10);
+    }
 
     const searchText = ref('');
     const pd_view = ref({});
@@ -186,7 +193,8 @@ export default {
       pd_view,
       toAddPage,
       toModifyPage,
-      initial
+      initial,
+      formatDate
     }
   }
 

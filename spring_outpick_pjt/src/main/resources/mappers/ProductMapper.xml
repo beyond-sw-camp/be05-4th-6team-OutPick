@@ -29,8 +29,8 @@
 
     <insert id="addProduct"
             parameterType="com.encore.outpick.product.domain.ProductDTO">
-        INSERT INTO PRODUCT(category_id, name, price, stock, content, supplier, storage)
-        VALUES(#{categoryId}, #{name}, #{price}, #{stock}, #{content}, #{supplier}, #{storage})
+        INSERT INTO PRODUCT(category_id, name, price, stock, content, supplier, storage, incomming_date)
+        VALUES(#{categoryId}, #{name}, #{price}, #{stock}, #{content}, #{supplier}, #{storage}, #{incommingDate})
     </insert>
 
     <update id="modifyProduct"
@@ -43,7 +43,8 @@
             STOCK = #{stock},
             CONTENT = #{content},
             SUPPLIER = #{supplier},
-            STORAGE = #{storage}
+            STORAGE = #{storage},
+            incomming_date = #{incommingDate}
         WHERE
             PRODUCT_ID = #{productId}
     </update>

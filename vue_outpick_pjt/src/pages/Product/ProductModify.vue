@@ -61,11 +61,22 @@ export default {
     const getProduct = async () => {
       try {
         const response = await getProductById(productId);
-        product.value = { ...response.data };
+        // 날짜 데이터를 변환하여 저장
+        product.value = {
+          ...response.data,
+          incommingDate: formatDate(response.data.incommingDate)
+        };
       } catch (error) {
         console.error("정보 불러오기 실패: ", error);
       }
     };
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const date = new Date(dateStr);
+      const formattedDate = date.toISOString().substring(0, 10);
+      return formattedDate; // ISO string을 "yyyy-MM-dd" 형식으로 변환
+    }
 
     getProduct();
 
