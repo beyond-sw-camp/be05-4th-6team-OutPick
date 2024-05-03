@@ -1,6 +1,6 @@
 <template>
   <div class="product-form">
-    <form @submit.prevent="submitForm" class="form-container">
+    <form @submit.prevent="updateInfo" class="form-container">
       <div class="form-group">
         <label for="productName">상품 이름</label>
         <input id="productName" v-model="product.name" type="text">
@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label for="category">카테고리</label>
-        <input id="category" v-model="product.category" type="text">
+        <input id="category" v-model="product.categoryId" type="text">
       </div>
       <div class="form-group">
         <label for="price">가격</label>
@@ -22,8 +22,8 @@
         <input id="stock" v-model="product.stock" type="number">
       </div>
       <div class="form-group">
-        <label for="incomming_date">입고일</label>
-        <input id="incomming_date" v-model="product.incomming_date" type="date">
+        <label for="incommingDate">입고일</label>
+        <input id="incommingDate" v-model="product.incommingDate" type="date">
       </div>
       <div class="form-group">
         <label for="supplier">공급업체</label>
@@ -34,7 +34,7 @@
         <input id="storage" v-model="product.storage" type="text">
       </div>
       <div class="form-group action-buttons">
-        <button type="submit" class="button" @click="updateInfo">수정</button>
+        <button type="submit" class="button">수정</button>
         <button type="button" class="button" @click="gotoMain">취소</button>  
       </div>
     </form>
@@ -43,81 +43,58 @@
 
 <script>
 import { ref } from 'vue';
-import {modifyProduct, getProductById} from '@/axios'
-import {useRoute, useRouter} from 'vue-router';
+import { modifyProduct, getProductById } from '@/axios';
+import { useRoute, useRouter } from 'vue-router';
 
-export default{
+export default {
   name: 'ProductModify',
-  setup(){
+  setup() {
     const route = useRoute();
     const router = useRouter();
     const productId = route.params.productId;
-    console.log(productId);
-    const product = ref({
-      productId: '',
-      name: '',
-      content: '',
-      category: '',
-      price: '',
-      stock: '',
-      incomming_date: '',
-      supplier: '',
-      storage: ''
-    })
+    const product = ref({});
 
     const gotoMain = () => {
-      router.push({
-        name : "List"
-      });
-    }
+      router.push({ name: "List" });
+    };
 
     const getProduct = async () => {
-      try{
+      try {
         const response = await getProductById(productId);
         product.value = { ...response.data };
-      }catch(e){
-        console.log("정보 불러오기 실패");
+      } catch (error) {
+        console.error("정보 불러오기 실패: ", error);
       }
-    }
+    };
+
     getProduct();
 
     const updateInfo = async () => {
-      try{
-        const data = {
-          productId: product.value.productId,
-          name: product.value.name,
-          content: product.value.content,
-          category: product.value.category,
-          price: product.value.price,
-          stock: product.value.stock,
-          incomming_date: product.value.incomming_date,
-          supplier: product.value.supplier,
-          storage: product.value.storage
+    console.log("전송되는 데이터:", JSON.stringify(product.value, null, 2));
+    try {
+        const response = await modifyProduct(productId, product.value);
+        console.log("서버 응답:", response);
+        if (response.status === 200) {
+            alert("수정되었습니다.");
+            router.push('/');
+        } else {
+            throw new Error(`Server responded with status: ${response.status}`);
         }
-        
-        const response = await modifyProduct(data.productId, data)
-        console.log(response);
-        alert("수정되었습니다.");
-        window.location.href = '/';
-      } catch(error) {
-        console.error("수정에 실패하였습니다. ", error)
-      }
+    } catch (error) {
+        console.error("수정에 실패하였습니다: ", error);
+        alert("수정 실패!");
     }
+};
+
 
     return {
       product,
       gotoMain,
-      getProduct,
       updateInfo
-
-    }
+    };
   }
-
-}
-
-
+};
 </script>
-
 <style>
 .product-form {
   max-width: 800px;
