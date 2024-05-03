@@ -66,12 +66,14 @@
     <div class="row listDiv" >
       <table class="table border-gray">
         <thead>
-        <th>설명</th>
-        <th>저장 창고</th>
-        <th>재고</th>
+          <th>카테고리 ID</th>
+          <th>설명</th>
+          <th>저장 창고</th>
+          <th>재고</th>
         </thead>
         <tbody>
         <tr>
+          <td>{{ pd_view.categoryId }}</td>
           <td>{{ pd_view.content }}</td>
           <td>{{ pd_view.storage }}</td>
           <td>{{ pd_view.stock }}</td>
