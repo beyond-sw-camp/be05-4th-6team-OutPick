@@ -63,20 +63,30 @@ const submitForm = async () => {
   try {
     const response = await addProduct(product);
     console.log('Product added', response.data);
-    alert("정상적으로 저장되었습니다");
-    // 폼 데이터 초기화
-    Object.keys(product).forEach(key => {
-      if (typeof product[key] === 'number') {
-        product[key] = 0;
-      } else {
-        product[key] = '';
-      }
-    });
+
+    // 팝업 창을 띄워 사용자에게 선택지 제공
+    if (confirm("저장이 완료되었습니다. 계속 추가하시겠습니까?")) {
+      // 계속 추가를 선택한 경우, 폼 초기화
+      resetForm();
+    } else {
+      // 취소를 선택한 경우, 메인 페이지로 이동
+      router.push({ name: 'List' });
+    }
   } catch (error) {
     console.error('Error adding product', error);
     alert("저장에 실패하였습니다");
   }
 };
+
+function resetForm() {
+  Object.keys(product).forEach(key => {
+    if (typeof product[key] === 'number') {
+      product[key] = 0;
+    } else {
+      product[key] = '';
+    }
+  });
+}
 
 const cancel = () => {
   router.push({ name: 'List' });
