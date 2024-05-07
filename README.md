@@ -18,7 +18,7 @@
 <br/>
 
 ## 2. API 명세서
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/b077350a-c3c6-465c-9bfc-c5016b3b7541">
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/b077350a-c3c6-465c-9bfc-c5016b3b7541" h ref="https://docs.google.com/spreadsheets/d/1gCxWgb2HCPqeUkymqBYCLILEuOzy5x106LlM4JyODRA/edit?usp=sharing">
 <br/>
 <br/>
 <br/>
@@ -29,6 +29,9 @@
 |:-:|:-:|:-:|:-:|:-:|
 |혜경<br/>[@BakHyegyeong](https://github.com/BakHyegyeong)|경원<br/>[@kyungwon2won2](https://github.com/kyungwon2won2)|영원<br/>[@nbbb9](https://github.com/nbbb9)|설화<br/>[@Noononda](https://github.com/Noononda)|승호<br/>[@sttoend](https://github.com/sttoend)|
 
+<div>
+   혜경 : 프론트
+</div>
 <br/>
 <br/>
 <br/>
