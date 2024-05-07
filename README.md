@@ -7,3 +7,15 @@
 |:-:|:-:|:-:|:-:|:-:|
 |혜경<br/>[@BakHyegyeong](https://github.com/BakHyegyeong)|경원<br/>[@kyungwon2won2](https://github.com/kyungwon2won2)|영원<br/>[@nbbb9](https://github.com/nbbb9)|설화<br/>[@Noononda](https://github.com/Noononda)|승호<br/>[@sttoend](https://github.com/sttoend)|
 
+<br/>
+<br/>
+
+## 기술
+<img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=mariadb&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+<img src="https://img.shields.io/badge/vue-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white">
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white">
+<img src="https://img.shields.io/badge/dockerhub-2496ED?style=for-the-badge&logo=dockerhub&logoColor=white">
+<img src="https://img.shields.io/badge/jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white">
+
+
