@@ -29,9 +29,6 @@
 |:-:|:-:|:-:|:-:|:-:|
 |혜경<br/>[@BakHyegyeong](https://github.com/BakHyegyeong)|경원<br/>[@kyungwon2won2](https://github.com/kyungwon2won2)|영원<br/>[@nbbb9](https://github.com/nbbb9)|설화<br/>[@Noononda](https://github.com/Noononda)|승호<br/>[@sttoend](https://github.com/sttoend)|
 
-<div>
-   혜경 : 프론트
-</div>
 <br/>
 <br/>
 <br/>
