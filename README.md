@@ -13,6 +13,14 @@
    <br/>
    
 ## 1. 프로젝트 개요
+<div>
+   2024년 현재, 기업 운영의 범위는 더욱 광범위해지고 규모가 커져가고있다. 이러한 상황에서 넓은 범위의 분야를 포괄하고, 가장 중요시되는 것이 '영업관리'이다. 기업 운영에서 중요하게 여겨지는 영업관리이지만, 기존 영업 관리 시스템은 사용자 친화적이지 않다. 따라서 기존보다 효율적이며 유연성 있는 영업관리 시스템이 필요하다. 이 부분이 영업관리 주제를 선택한 이유이자, 앞으로 프로젝트를 진행하면서 중점적으로 개선하여 개발할 부분이다.
+많은 분야의 기업 영업관리가 있지만, 그 중 선택한 분야는 의류 브랜드이다. 의류 브랜드 영업관리를 선택한 이유에는 몇가지가 있다.
+첫번째, 시장의 수요이다. 인간이 살아가면서 가장 중요하고 필요한 요소들 중 하나가 바로 의류이다. 인간이 현존하는 동안에는 의류 산업은 필수적이다. 또한 인류 사회가 발전함에 따라 의류는 단순한 옷, 그 자체가 아닌 자신의 개성을 드러낼 수 있는 패션 수단으로써 시장의 규모가 더욱 커지고있다.
+두번째, 트렌드의 영향이다. 위에서 말했듯이 의류는 개성을 드러내는 패션 수단으로 발전했다. 이에 따라서 의류 산업은 트렌드의 영향을 많이 받게되는 산업 중 하나인데, 이러한 트렌드에 맞춰서 효율적이고 유연성 있게 영업을 관리할 수 있는 시스템이 필요하다고 판단했다.
+세번째, 경쟁력이다. 유연하고 효율적인 영업 관리를 한다면 빠르게 대응해야하는 의류 브랜드 산업에서는 큰 경쟁력을 가질 수 있게 될 것이다. 기존보다 더 효율적이고 친화적인 UI, 트렌드에 빠른 대응을 할 수 있도록 돕는 트렌드에 대한 정보 제공 등을 활용한다면 다른 영업관리 시스템에 비해서 더욱 경쟁력을 가진 영업관리 시스템이 될 것이라고 생각했다.
+위와 같은 내용을 바탕으로 '의류 브랜드 산업 영업 관리 시스템'을 최종 주제로 선정하였다. 해당 프로젝트는 영업관리의 중 재고, 유통 관리 일부분을 구현하였고, 배포하는 과정의 내용을 중점적으로 다루었다.
+</div>
 <br/>
 <br/>
 <br/>
@@ -47,14 +55,16 @@
 <br/>
 
 ## 5. 빌드 과정 및 배포 문서
-1. jar파일 생성 <br/>
+### 1. jar파일 생성 <br/>
 명령어를 통해 jar파일을 생성합니다.
 ```
 ./gradlew clean build
 ```
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/558aeae4-f3e0-4492-98ad-fd6037522a85">
 <br/>
-2. DOCKER FILE<br/>
+<br/>
+
+### 2. DOCKER FILE<br/>
 
 ```dockerfile
 FROM openjdk:17-alpine
@@ -69,7 +79,9 @@ COPY ${JAR_FILE} backend.jar
 ENTRYPOINT ["java", "-jar", "/backend.jar"]
 ```
 <br/>
-3. DOCKER COMPOSE
+<br/>
+
+### 3. DOCKER COMPOSE
 
 ```yaml
 version: "3"
@@ -104,26 +116,40 @@ services:
       - "6033:3306"
 ```
 <br/>
-
-4. webhook<br/>
-프론트엔드와 백엔드 깃허브 repository에서 WebHook 설정
 <br/>
 
-5. jenkins credentials<br/>
-프론트엔드, 백엔드의 git repository와 docker hub에 접근하기 위한 설정
+### 4. webhook<br/>
+
+`프론트엔드와 백엔드 깃허브 repository에서 WebHook 설정`
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/3e2a9c90-29ca-4dac-9b26-41b5f55e7d4e">
+<br/>
 <br/>
 
-6. Jenkins item 생성<br/>
+### 5. jenkins credentials<br/>
+`프론트엔드, 백엔드의 git repository와 docker hub에 접근하기 위한 설정`
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/6f620db9-d8d1-492f-a5cc-3575e12752b7">
+<br/>
+<br/>
+
+### 6. Jenkins item 생성<br/>
 프론트엔드와 백엔드 item 생성
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/60a83c86-adb4-4409-982c-0be848ff327b">
+<br/>
 <br/>
 
-7. Jenkins item General<br/>
-- Jenkins item_git 연결<br/>
-`각 item에 git hub repository url 입력을 통한 연결 `
-- Jenkins item_build Triggers 설정<br/>
-`GitHub hook trigger for GITScm polling 체크`
-- Jenkins item_Pipeline<br/>
-  - FrontEnd
+### 7. Jenkins item General<br/>
+   - Jenkins item_git 연결<br/>
+   `각 item에 git hub repository url 입력을 통한 연결 `
+   <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/079283a1-ace9-428b-b19c-1a7e17dd1227">
+   
+   - Jenkins item_build Triggers 설정<br/>
+   `GitHub hook trigger for GITScm polling 체크`
+   <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/3d48675c-0ee2-422c-9fca-cc7caec21018">
+   
+   - Jenkins item_Pipeline<br/>
+   
+      - FrontEnd
+    
 ```pipeline
 pipeline {
     agent any
@@ -192,7 +218,10 @@ pipeline {
     }
 }
 ```
-  - BackEnd
+
+     - BackEnd
+
+    
 ```pipeline
 pipeline {
     agent any
@@ -246,17 +275,24 @@ pipeline {
 }
 ```
 
-8. Docker Hub Images 생성<br/>
+### 8. Docker Hub Images 생성<br/>
 ` Jenkins를 통한 Docker Hub Image 자동 생성`
-
-9. Docker Container 생성<br/>
- `Jenkins를 통한 Docker Container 자동 생성`
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/613e3759-3bfa-4ddd-a6c2-47aac14e1477">
+<br/>
 <br/>
 
-10. Build 결과<br/>
+### 9. Docker Container 생성<br/>
+ `Jenkins를 통한 Docker Container 자동 생성`
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/6e0169aa-6eed-41b9-a1ef-16ce499e609e">
+<br/>
+<br/>
+
+### 11. Build 결과<br/>
 - FrontEnd
+  <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/480b5963-bb31-4258-b7e1-e2396f595be4">
 <br/>
 - BackEnd
+  <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/e99092ee-b56f-4d80-934c-64866e7829fe">
 <br/>
 
 <br/>
