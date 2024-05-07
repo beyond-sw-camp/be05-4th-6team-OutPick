@@ -302,8 +302,8 @@ pipeline {
 <br/>
 
 ## 6. 기능 테스트
-### 상품 검색
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/7ee3da78-fafe-478d-8ebe-55a67ba21692">
+### 상품 리스트, 상세 정보
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/04dcd06d-e91d-4fe5-a7dd-89f5353397a3">
 <br/>
 <br/>
 
@@ -312,8 +312,13 @@ pipeline {
 <br/>
 <br/>
 
-### 상품 리스트, 상세 정보
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/04dcd06d-e91d-4fe5-a7dd-89f5353397a3">
+### 상품 수정
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/f9504df0-b381-4b1b-a114-157e81429b14">
+<br/>
+<br/>
+
+### 상품 검색
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/7ee3da78-fafe-478d-8ebe-55a67ba21692">
 <br/>
 <br/>
 
@@ -322,10 +327,7 @@ pipeline {
 <br/>
 <br/>
 
-### 상품 수정
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/f9504df0-b381-4b1b-a114-157e81429b14">
-<br/>
-<br/>
+
 <br/>
 <br/>
 <br/>
