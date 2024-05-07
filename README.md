@@ -18,6 +18,7 @@
 <br/>
 
 ## 2. API 명세서
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/b077350a-c3c6-465c-9bfc-c5016b3b7541">
 <br/>
 <br/>
 <br/>
