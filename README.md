@@ -51,7 +51,7 @@
 <br/>
 <br/>
 
->>## 5. 시스템 아키텍쳐
+>## 5. 시스템 아키텍쳐
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/292630c5-ec68-442d-ade5-513af1a72551">
 
 <br/>
