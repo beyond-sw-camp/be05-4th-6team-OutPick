@@ -1,6 +1,7 @@
 <center>
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&background=000000&random=false&width=435&lines=Pick+Your+Best+Outfit%2C+OutPICK)](https://git.io/typing-svg)
+
 </center>
 
 
