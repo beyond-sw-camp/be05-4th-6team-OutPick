@@ -1,9 +1,4 @@
-<center>
-
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&background=000000&random=false&width=435&lines=Pick+Your+Best+Outfit%2C+OutPICK)](https://git.io/typing-svg)
-
-</center>
-
 
 ![OutPick_logo](https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/113917104/b4fe368b-e161-4ff1-a600-be6e5171eb8b)
 
@@ -12,8 +7,9 @@
 [2. API 명세서](#2-API-명세서)<br/>
 [3. 팀 소개](#3-팀-소개)<br/>
 [4. 기술 스택](#4-기술-스택)<br/>
-[5. 빌드 과정 및 배포 문서](#2-빌드-과정-및-배포-문서)<br/>
-[6. 기능 테스트](#6-기능-테스트)<br/>
+[5. 시스템 아키텍쳐](#5-시스템-아키텍쳐)<br/>
+[6. 빌드 과정 및 배포 문서](#6-빌드-과정-및-배포-문서)<br/>
+[7. 기능 테스트](#7-기능-테스트)<br/>
 
    <br/>
    
@@ -51,12 +47,17 @@
 * **Backend   :** <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"><br/>
 * **Frontend :** <img src="https://img.shields.io/badge/vue-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white"><br/>
 * **CI/CD :** <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"> <img src="https://img.shields.io/badge/dockerhub-2496ED?style=for-the-badge&logo=dockerhub&logoColor=white"> <img src="https://img.shields.io/badge/jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white">
-<br/>
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/292630c5-ec68-442d-ade5-513af1a72551">
+
 <br/>
 <br/>
 
->## 5. 빌드 과정 및 배포 문서
+>>## 5. 시스템 아키텍쳐
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/292630c5-ec68-442d-ade5-513af1a72551">
+
+<br/>
+<br/>
+
+>## 6. 빌드 과정 및 배포 문서
 ### 1. jar파일 생성 <br/>
 `명령어를 통해 jar파일을 생성합니다.`
 ```
@@ -314,7 +315,7 @@ pipeline {
 
 <br/>
 
-## 6. 기능 테스트
+>## 7. 기능 테스트
 ### 상품 리스트, 상세 정보
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/04dcd06d-e91d-4fe5-a7dd-89f5353397a3">
 <br/>
