@@ -52,7 +52,8 @@
 <br/>
 
 >## 5. 시스템 아키텍쳐
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/292630c5-ec68-442d-ade5-513af1a72551">
+![배포 구상도 백엔드](https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/113917104/660672d1-74a8-475b-a20a-f95d76997c22)
+
 
 <br/>
 <br/>
