@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  app:
+    container_name: OutPick_Backend
+    build: .
+    image: lywon/outpick_backend:latest
+    depends_on:
+      - database
+    ports:
+      - "8972:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://database:3306/outpick?useUnicode=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123456789
+    restart: always
+    links:
+      - database
+    # platform: linux/arm64
+
+  database:
+    image: mariadb:10.6.16
+    container_name: OutPick_Backend_DB
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456789
+      MARIADB_DATABASE: outpick
+    volumes:
+      - ./src/main/resources/db_config/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "6033:3306"

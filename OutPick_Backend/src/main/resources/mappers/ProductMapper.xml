@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.encore.outpick.product.mapper.ProductMapper">
+
+    <select id="selectProductById" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT *
+        FROM product
+        WHERE product_id = #{productId}
+    </select>
+
+    <select id="selectAllProducts" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT *
+        FROM product
+        ORDER BY incomming_date
+    </select>
+
+    <select id="sortAllProducts" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT *
+        FROM product
+        ORDER BY ${sortBy}
+    </select>
+
+    <select id="selectProductByCategoryId" resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT *
+        FROM product
+        WHERE category_id = #{categoryId}
+        ORDER BY incomming_date
+    </select>
+
+    <insert id="addProduct"
+            parameterType="com.encore.outpick.product.domain.ProductDTO">
+        INSERT INTO product(category_id, name, price, stock, content, supplier, storage, incomming_date)
+        VALUES(#{categoryId}, #{name}, #{price}, #{stock}, #{content}, #{supplier}, #{storage}, #{incommingDate})
+    </insert>
+
+    <update id="modifyProduct"
+            parameterType="com.encore.outpick.product.domain.ProductDTO">
+        UPDATE product
+        SET
+            category_id = #{categoryId},
+            name = #{name},
+            price = #{price},
+            stock = #{stock},
+            content = #{content},
+            supplier = #{supplier},
+            storage = #{storage},
+            incomming_date = #{incommingDate}
+        WHERE
+            product_id = #{productId}
+    </update>
+
+    <delete id="deleteProduct"
+            parameterType="java.lang.Long">
+        DELETE FROM product
+        WHERE
+            product_id = #{productId}
+    </delete>
+
+    <select id="findByName"
+            resultType="com.encore.outpick.product.domain.ProductDTO">
+        SELECT *
+        FROM product
+        WHERE name
+                  LIKE CONCAT('%', #{name}, '%');
+    </select>
+
+</mapper>
