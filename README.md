@@ -9,10 +9,8 @@
 [6. 기능 테스트](#6-기능-테스트)<br/>
 
    <br/>
-   <br/>
-   <br/>
    
-## 1. 프로젝트 개요
+>## 1. 프로젝트 개요
 <div>
    2024년 현재, 기업 운영의 범위는 더욱 광범위해지고 규모가 커져가고있다. 이러한 상황에서 넓은 범위의 분야를 포괄하고, 가장 중요시되는 것이 '영업관리'이다. 기업 운영에서 중요하게 여겨지는 영업관리이지만, 기존 영업 관리 시스템은 사용자 친화적이지 않다. 따라서 기존보다 효율적이며 유연성 있는 영업관리 시스템이 필요하다. 이 부분이 영업관리 주제를 선택한 이유이자, 앞으로 프로젝트를 진행하면서 중점적으로 개선하여 개발할 부분이다.<br/>
 많은 분야의 기업 영업관리가 있지만, 그 중 선택한 분야는 의류 브랜드이다. 의류 브랜드 영업관리를 선택한 이유에는 몇가지가 있다.
@@ -24,26 +22,20 @@
 위와 같은 내용을 바탕으로 '의류 브랜드 산업 영업 관리 시스템'을 최종 주제로 선정하였다. 해당 프로젝트는 영업관리의 중 재고, 유통 관리 일부분을 구현하였고, 배포하는 과정의 내용을 중점적으로 다루었다.
 </div>
 <br/>
-<br/>
-<br/>
 
-## 2. API 명세서
+>## 2. API 명세서
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/b077350a-c3c6-465c-9bfc-c5016b3b7541">(https://docs.google.com/spreadsheets/d/1gCxWgb2HCPqeUkymqBYCLILEuOzy5x106LlM4JyODRA/edit#gid=0)
 <br/>
 <br/>
-<br/>
-
-
-## 3. 팀 소개
+>## 3. 팀 소개
 |<img src="https://avatars.githubusercontent.com/u/83454423?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/134581020?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/113917104?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/137466623?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/134200142?v=4" width="150" height="150"/>|
 |:-:|:-:|:-:|:-:|:-:|
-|혜경<br/>[@BakHyegyeong](https://github.com/BakHyegyeong)|경원<br/>[@kyungwon2won2](https://github.com/kyungwon2won2)|영원<br/>[@nbbb9](https://github.com/nbbb9)|설화<br/>[@Noononda](https://github.com/Noononda)|승호<br/>[@sttoend](https://github.com/sttoend)|
+|박혜경<br/>[@BakHyegyeong](https://github.com/BakHyegyeong)|여경원<br/>[@kyungwon2won2](https://github.com/kyungwon2won2)|이영원<br/>[@nbbb9](https://github.com/nbbb9)|정설화<br/>[@Noononda](https://github.com/Noononda)|백승호<br/>[@sttoend](https://github.com/sttoend)|
 
 <br/>
-<br/>
-<br/>
 
-## 4. 기술 스택
+>## 4. 기술 스택
+<center>
 <img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=mariadb&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
 <img src="https://img.shields.io/badge/vue-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white">
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
@@ -52,21 +44,23 @@
 <img src="https://img.shields.io/badge/jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white">
 <br/>
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/292630c5-ec68-442d-ade5-513af1a72551">
-<br/>
+</center>
 <br/>
 <br/>
 
-## 5. 빌드 과정 및 배포 문서
+>## 5. 빌드 과정 및 배포 문서
 ### 1. jar파일 생성 <br/>
-명령어를 통해 jar파일을 생성합니다.
+`명령어를 통해 jar파일을 생성합니다.`
 ```
 ./gradlew clean build
 ```
+<center>
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/558aeae4-f3e0-4492-98ad-fd6037522a85">
+</center>
 <br/>
 <br/>
 
-### 2. DOCKER FILE<br/>
+### 2. Dockerfile<br/>
 
 ```dockerfile
 FROM openjdk:17-alpine
@@ -81,9 +75,11 @@ COPY ${JAR_FILE} backend.jar
 ENTRYPOINT ["java", "-jar", "/backend.jar"]
 ```
 <br/>
-<br/>
 
-### 3. DOCKER COMPOSE
+### 3. Docker-compose<br/>
+<details>
+<summary>Code</summary>
+<div markdown="1">
 
 ```yaml
 version: "3"
@@ -117,40 +113,43 @@ services:
     ports:
       - "6033:3306"
 ```
-<br/>
+</div>
+</details>
+
 <br/>
 
-### 4. webhook<br/>
+### 4. Webhook<br/>
 
 `프론트엔드와 백엔드 깃허브 repository에서 WebHook 설정`
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/3e2a9c90-29ca-4dac-9b26-41b5f55e7d4e">
 <br/>
 <br/>
 
-### 5. jenkins credentials<br/>
+### 5. Jenkins Credentials<br/>
 `프론트엔드, 백엔드의 git repository와 docker hub에 접근하기 위한 설정`
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/6f620db9-d8d1-492f-a5cc-3575e12752b7">
 <br/>
 <br/>
 
-### 6. Jenkins item 생성<br/>
-프론트엔드와 백엔드 item 생성
+### 6. Jenkins Item 생성<br/>
+`프론트엔드와 백엔드 item 생성`
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/60a83c86-adb4-4409-982c-0be848ff327b">
-<br/>
+
 <br/>
 
-### 7. Jenkins item General<br/>
-   - Jenkins item_git 연결<br/>
+### 7. Jenkins Item General<br/>
+   - **Jenkins item_git 연결**<br/>
    `각 item에 git hub repository url 입력을 통한 연결 `
    <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/079283a1-ace9-428b-b19c-1a7e17dd1227">
    
-   - Jenkins item_build Triggers 설정<br/>
+   - **Jenkins item_build Triggers 설정**<br/>
    `GitHub hook trigger for GITScm polling 체크`
    <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/3d48675c-0ee2-422c-9fca-cc7caec21018">
    
-   - Jenkins item_Pipeline<br/>
-   
-      - FrontEnd
+   - **Jenkins item_Pipeline**<br/>
+<details>
+<summary>Frontend Pipeline</summary>
+<div markdown="1">
     
 ```pipeline
 pipeline {
@@ -220,10 +219,13 @@ pipeline {
     }
 }
 ```
+</div>
+</details>
 
-     - BackEnd
+<details>
+<summary>Backend Pipeline</summary>
+<div markdown="1">
 
-    
 ```pipeline
 pipeline {
     agent any
@@ -277,57 +279,50 @@ pipeline {
 }
 ```
 
-### 8. Docker Hub Images 생성<br/>
-` Jenkins를 통한 Docker Hub Image 자동 생성`
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/613e3759-3bfa-4ddd-a6c2-47aac14e1477">
-<br/>
+</div>
+</details>
+
 <br/>
 
-### 9. Docker Container 생성<br/>
- `Jenkins를 통한 Docker Container 자동 생성`
-<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/6e0169aa-6eed-41b9-a1ef-16ce499e609e">
-<br/>
-<br/>
-
-### 11. Build 결과<br/>
-- FrontEnd
+### 8. Build 결과<br/>
+- **OutPick_Frontend**
   <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/480b5963-bb31-4258-b7e1-e2396f595be4">
 <br/>
-- BackEnd
+<br/>
+
+- **OutPick_Backend**
   <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/e99092ee-b56f-4d80-934c-64866e7829fe">
 <br/>
 
+### 9. Docker Hub Images 생성<br/>
+` Jenkins를 통한 Docker Hub Image 자동 생성`
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/613e3759-3bfa-4ddd-a6c2-47aac14e1477">
+
 <br/>
-<br/>
+
+### 10. Docker Container 생성<br/>
+ `Jenkins를 통한 Docker Container 자동 생성`
+<img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/6e0169aa-6eed-41b9-a1ef-16ce499e609e">
+
 <br/>
 
 ## 6. 기능 테스트
 ### 상품 리스트, 상세 정보
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/04dcd06d-e91d-4fe5-a7dd-89f5353397a3">
 <br/>
-<br/>
 
 ### 상품 등록
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/c95abb30-3e9e-4e86-b0a3-18bdc4f7d497">
-<br/>
 <br/>
 
 ### 상품 수정
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/f9504df0-b381-4b1b-a114-157e81429b14">
 <br/>
-<br/>
 
 ### 상품 검색
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/7ee3da78-fafe-478d-8ebe-55a67ba21692">
 <br/>
-<br/>
 
 ### 상품 삭제
 <img src="https://github.com/beyond-sw-camp/be05-4th-6team-OutPick/assets/137466623/2d0ff134-73b5-41c6-b859-4a48e281f349">
-<br/>
-<br/>
-
-
-<br/>
-<br/>
 <br/>
